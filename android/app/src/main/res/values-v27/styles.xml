@@ -1,0 +1,12 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/kyphara_bar</item>
+        <item name="colorPrimaryDark">@color/kyphara_bar</item>
+        <item name="android:statusBarColor">@color/kyphara_bar</item>
+        <item name="android:navigationBarColor">@color/kyphara_bg</item>
+        <item name="android:windowBackground">@color/kyphara_bg</item>
+        <item name="android:colorBackground">@color/kyphara_bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+</resources>

@@ -1,0 +1,14 @@
+<resources>
+    <color name="kyphara_bg">#FFF4F7</color>
+    <color name="kyphara_bar">#F2097F</color>
+    <color name="ic_launcher_background">#F2097F</color>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/kyphara_bar</item>
+        <item name="colorPrimaryDark">@color/kyphara_bar</item>
+        <item name="android:statusBarColor">@color/kyphara_bar</item>
+        <item name="android:navigationBarColor">@color/kyphara_bg</item>
+        <item name="android:windowBackground">@color/kyphara_bg</item>
+        <item name="android:colorBackground">@color/kyphara_bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>
