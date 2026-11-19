@@ -180,7 +180,13 @@ document.getElementById('secBtn').onclick=()=>navOpen(bar.classList.contains('cl
 let autoFold=false;const barTop=bar.getBoundingClientRect().top+scrollY;
 function hl(){if(!autoFold&&scrollY>barTop+40){autoFold=true;navOpen(false);}let cur=navs[0];const atEnd=innerHeight+scrollY>=document.body.scrollHeight-4;for(const a of navs){const s=document.querySelector(a.getAttribute('href'));if(s&&s.getBoundingClientRect().top<200)cur=a;}if(atEnd&&scrollY>200)cur=navs[navs.length-1];navs.forEach(a=>a.classList.toggle('on',a===cur));}
 addEventListener('scroll',hl,{passive:true});hl();
-navs.forEach(a=>a.addEventListener('click',()=>{navOpen(false);autoFold=true;const d=document.querySelector(a.getAttribute('href')+' details');if(d)d.open=true;}));
+navs.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();navOpen(false);autoFold=true;const sec=document.querySelector(a.getAttribute('href'));const d=sec&&sec.querySelector('details');if(d)d.open=true;if(sec)sec.scrollIntoView({behavior:'smooth'});}));
+// back button: closes the last opened section first (history.pushState + popstate), then leaves the app
+const opened=[];let fromPop=false;
+document.querySelectorAll('section details').forEach(d=>d.addEventListener('toggle',()=>{const id=d.parentElement.id;
+ if(d.open){if(fromPop)return;opened.push(id);history.pushState({sec:id},'');}
+ else if(!fromPop){const i=opened.lastIndexOf(id);if(i>-1){opened.splice(i,1);if(history.state&&history.state.sec===id){fromPop=true;history.back();}}}}));
+addEventListener('popstate',()=>{if(fromPop){fromPop=false;return;}const id=opened.pop();if(!id)return;const d=document.querySelector('#'+id+' details');if(d&&d.open){fromPop=true;d.open=false;setTimeout(()=>{fromPop=false},0);const t=document.getElementById(id);if(t&&t.getBoundingClientRect().top<0)t.scrollIntoView();}});
 // skin type
 const SKIN=[['Dry skin','Use a creamy cleanser and a rich moisturizer. Avoid very hot water.'],['Oily skin','Use a gel cleanser and a light, oil-free moisturizer. Do not skip moisturizer.'],['Combination skin','Use a gentle cleanser, a light moisturizer, and blotting papers for shiny areas.'],['Normal skin','Keep it simple: gentle cleanser, moisturizer and daily sunscreen.'],['Sensitive skin','Choose fragrance-free products and test each new product before using it on your face.']];
 document.getElementById('skin').onchange=function(){const o=document.getElementById('skinOut');const i=this.selectedIndex;o.innerHTML=i?'<b>'+SKIN[i-1][0]+'</b><br><span>'+SKIN[i-1][1]+'</span>':'';if(window.__tr)window.__tr(o);};
