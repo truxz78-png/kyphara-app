@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<title>Kyphara – Beauty &amp; Courses</title>
+<meta name="description" content="Kyphara brings together beauty stores from around the world: makeup, skincare, hair care, nails and men's grooming, plus package forwarding and online beauty courses.">
+<meta name="theme-color" content="#E8175D">
+<link rel="icon" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF4F7;--card:#FFFFFF;--soft:#FFE6EE;--pink:#E8175D;--pink2:#FF4F8B;--coral:#FF8A5B;--gold:#C9962E;--gold2:#F2D27A;--text:#2B0A17;--muted:#7A5562;--line:rgba(232,23,93,.18)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 Inter,system-ui,sans-serif}
+a{color:var(--pink)}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header.hero{background:linear-gradient(135deg,#F2097F 0%,#FF3D6E 55%,#FF9A5C 100%);color:#fff;text-align:center;padding:46px 16px 22px;border-radius:0 0 28px 28px}
+.logo{width:96px;height:96px;border-radius:24px;box-shadow:0 10px 30px rgba(120,0,40,.35);border:3px solid rgba(255,255,255,.7)}
+h1{font:700 46px/1.1 "Cormorant Garamond",Georgia,serif;letter-spacing:.16em;margin:14px 0 2px;background:linear-gradient(#FFF6D6,#F2D27A 55%,#E3B04B);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 2px 0 rgba(0,0,0,.04)}
+.tag{margin:0 auto 14px;max-width:520px;font-size:15px;opacity:.95}
+.disc{font-size:13px;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;text-align:left}
+header .disc{background:rgba(255,255,255,.95)}
+.disc button{background:none;border:0;color:var(--pink);font:inherit;font-weight:600;text-decoration:underline;cursor:pointer;padding:0}
+.disc p{margin:8px 0 0;display:none}.disc.open p{display:block}
+nav.bar{position:sticky;top:0;z-index:9;background:rgba(255,244,247,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.bar .barhead{display:flex;align-items:center;justify-content:center;padding:8px 16px}
+#secBtn{flex:none;background:var(--pink);color:#fff;border:0;border-radius:999px;padding:7px 16px;font:600 14px Inter,sans-serif;cursor:pointer}
+#navbar{display:flex;flex-wrap:wrap;gap:8px;padding:0 16px 12px}
+nav.bar.closed #navbar{display:none}
+nav.bar a{flex:none;text-decoration:none;color:var(--muted);font-size:14px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;white-space:nowrap;background:var(--card)}
+nav.bar a.on{color:#fff;background:var(--pink);border-color:var(--pink);font-weight:600}
+.lang{position:absolute;top:12px;right:12px;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.22);color:#fff;border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:6px 10px;font:14px Inter,sans-serif;z-index:10}
+.lang select{background:transparent;color:#fff;border:0;font:inherit;max-width:150px;outline:none}.lang select option{color:#2B0A17;background:#fff}
+section{margin:18px 0}
+details{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 4px 18px rgba(232,23,93,.06)}
+summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary .ic{font-size:26px;width:40px;height:40px;display:grid;place-items:center;background:var(--soft);border-radius:12px;flex:none}
+summary h2{font:700 24px/1.2 "Cormorant Garamond",Georgia,serif;margin:0;color:var(--pink)}
+summary small{display:block;color:var(--muted);font-size:13px}
+summary:after{content:"+";margin-left:auto;color:var(--pink);font-size:24px}
+details[open] summary:after{content:"–"}
+.body{padding:0 16px 16px}
+.store{display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:12px;margin-top:10px}
+.store div{flex:1 1 180px;min-width:0}.store .go{flex:1 1 auto}.store b{display:block;font-weight:600}.store div span{color:var(--muted);font-size:13px}
+.go{text-decoration:none;background:linear-gradient(135deg,var(--pink2),var(--pink));color:#fff;font-weight:600;font-size:14px;padding:10px 14px;border-radius:999px;text-align:center}
+.go em{display:block;font-style:normal;font-weight:400;font-size:11px;opacity:.9}
+h3{font:700 20px "Cormorant Garamond",Georgia,serif;color:var(--pink);margin:18px 0 4px}
+.note{font-size:13px;color:var(--muted);margin:10px 0 0}
+.guide p,.guide li{font-size:15px}.guide ul,.guide ol{padding-left:20px}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+td,th{border-bottom:1px solid var(--line);padding:7px 6px;text-align:left}th{color:var(--pink);font-weight:600}
+.tool{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:12px;margin-top:10px}
+.tool select{width:100%;margin-top:6px;padding:10px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--text);font:16px Inter,sans-serif}
+.out{margin-top:10px;font-size:15px;min-height:1.4em}.out b{color:var(--pink)}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 40px}
+footer a{margin:0 8px}
+[dir=rtl] summary:after{margin-left:0;margin-right:auto}[dir=rtl] .lang{right:auto;left:12px}
+</style>
+</head>
+<body>
+<label class="lang notranslate" translate="no"><span>🌐</span><select id="lang" aria-label="Language"></select></label>
+<header class="hero">
+<img class="logo" src="icon-192.png" alt="Kyphara" width="96" height="96">
+<h1 class="notranslate" translate="no">KYPHARA</h1>
+<p class="tag">Beauty stores from around the world, package forwarding and online beauty courses — all in one place</p>
+<div class="wrap"><div class="disc" id="disc">Why Kyphara is free: we may earn a small commission when you shop through our links, at no extra cost to you. <button type="button" id="discBtn">About these links</button>
+<p>Kyphara is an independent guide. Every button opens a partner store's own website, where you see their prices, shipping and returns. Purchases, payments and customer service happen on the store's site, not in Kyphara.</p></div></div>
+</header>
+
+<nav class="bar" id="bar"><div class="wrap"><div class="barhead"><button type="button" id="secBtn" aria-expanded="true"><span>Sections</span> <b class="notranslate" id="secSign">–</b></button></div><div id="navbar">
+<a href="#women">Women</a><a href="#men">Men</a><a href="#worldwide">Worldwide stores</a><a href="#india">India</a><a href="#guides">Beauty guides</a><a href="#shipping">Shipping</a><a href="#courses">Courses</a>
+</div></div></nav>
+
+<main class="wrap">
+<section id="women"><details><summary><span class="ic">💄</span><div><h2>Women</h2><small>Makeup, skincare, hair care and nails</small></div></summary><div class="body">
+<h3>Beauty stores</h3>@@w-stores@@
+<h3>Makeup</h3>@@makeup@@
+<h3>Skincare</h3>@@skincare@@
+<h3>Hair care</h3>@@hair@@
+<h3>Nails</h3>@@nails@@
+<p class="note">Prices, shipping costs and delivery times are set by each store and depend on your country.</p>
+</div></details></section>
+
+<section id="men"><details><summary><span class="ic">🧔</span><div><h2>Men</h2><small>Beard, shaving and grooming</small></div></summary><div class="body">
+@@men@@</div></details></section>
+
+<section id="worldwide"><details><summary><span class="ic">🌍</span><div><h2>Worldwide stores</h2><small>Beauty stores for women and men that ship to many countries</small></div></summary><div class="body">
+@@stores@@</div></details></section>
+
+<section id="india"><details><summary><span class="ic">🛍️</span><div><h2>India</h2><small>Popular beauty stores from India</small></div></summary><div class="body">
+@@india@@</div></details></section>
+
+<section id="guides"><details><summary><span class="ic">📖</span><div><h2>Beauty guides</h2><small>Skin type, daily routine, undertone, nails, beard and perfume</small></div></summary><div class="body guide">
+<h3>What is your skin type?</h3>
+<div class="tool"><label>One hour after washing your face, how does your skin feel?<select id="skin"><option value="">Choose an answer</option><option>Tight or flaky</option><option>Shiny all over</option><option>Shiny only on the forehead, nose and chin</option><option>Comfortable, not shiny and not tight</option><option>Red, itchy or it stings</option></select></label><div class="out" id="skinOut" aria-live="polite"></div></div>
+
+<h3>A simple daily routine</h3>
+<ol><li><b>Morning:</b> gentle cleanser, moisturizer and sunscreen (SPF 30 or higher).</li><li><b>Night:</b> remove makeup, cleanse, then apply moisturizer.</li><li><b>Once or twice a week:</b> a gentle exfoliant or a face mask.</li></ol>
+<p>Try one new product at a time. Before using it on your face, test a small amount behind your ear or on your inner arm for 24 hours.</p>
+
+<h3>Find your undertone</h3>
+<ul><li><b>Cool:</b> the veins on your wrist look blue or purple, and silver jewelry suits you best.</li><li><b>Warm:</b> your veins look green, and gold jewelry suits you best.</li><li><b>Neutral:</b> you see both colors, and both silver and gold suit you.</li></ul>
+<p>Choose foundation and concealer with the same undertone as your skin, and test the color on your jawline in daylight.</p>
+
+<h3>Makeup brushes: the basics</h3>
+<ul><li><b>Large fluffy brush:</b> powder and bronzer.</li><li><b>Flat dense brush:</b> liquid foundation.</li><li><b>Small round brush:</b> eyeshadow.</li><li><b>Angled brush:</b> blush, contour and eyebrows.</li></ul>
+<p>Wash your brushes every week with mild soap and let them dry lying flat.</p>
+
+<h3>Healthy nails</h3>
+<ul><li>File in one direction only, not back and forth.</li><li>Moisturize your cuticles with oil every night.</li><li>Always use a base coat before colored polish.</li><li>Give your nails a few days off between gel manicures.</li></ul>
+
+<h3>Beard care</h3>
+<ul><li>Wash your beard two or three times a week with a beard shampoo.</li><li>Apply a few drops of beard oil on damp hair to soften it.</li><li>Comb in the direction of growth and trim the neckline every week.</li></ul>
+
+<h3>Understanding perfume</h3>
+<table><thead><tr><th>Type</th><th>Fragrance oil</th><th>Lasts about</th></tr></thead><tbody>
+<tr><td>Eau de Cologne</td><td class="notranslate">2–4%</td><td>2 hours</td></tr>
+<tr><td>Eau de Toilette</td><td class="notranslate">5–15%</td><td>3 to 5 hours</td></tr>
+<tr><td>Eau de Parfum</td><td class="notranslate">15–20%</td><td>5 to 8 hours</td></tr>
+<tr><td>Parfum</td><td class="notranslate">20–30%</td><td>8 hours or more</td></tr>
+</tbody></table>
+<p>Spray on pulse points: wrists, neck and behind the ears. Do not rub your wrists together, because it breaks the fragrance faster.</p>
+<p>Buy perfume from official stores: very cheap copies of famous brands are often fake.</p>
+</div></details></section>
+
+<section id="shipping"><details><summary><span class="ic">📦</span><div><h2>Ship packages to your country</h2><small>Get an address abroad and receive your orders anywhere</small></div></summary><div class="body">
+<p>Some stores do not ship to every country. With these services you get an address in the United States: you send your order there and they forward it to you.</p>
+@@shipping@@
+<p class="note">Shipping and import fees are paid to the forwarding company. Check their prices before you buy.</p>
+</div></details></section>
+
+<section id="courses"><details><summary><span class="ic">🎓</span><div><h2>Beauty courses</h2><small>Learn makeup, nails, hair, barbering and more online</small></div></summary><div class="body">
+<h3>Makeup, skin and lashes</h3>@@c-face@@
+<h3>Nails</h3>@@c-nails@@
+<h3>Hair and barbering</h3>@@c-hair@@
+<h3>Perfume and salon business</h3>@@c-business@@
+<h3>Beauty diplomas</h3>@@c-diploma@@
+<p class="note">Course prices, certificates and languages are set by each platform.</p>
+</div></details></section>
+</main>
+
+<div class="wrap"><p class="disc">Kyphara uses affiliate links: if you buy through them, we may earn a commission at no extra cost to you. Prices, availability and shipping are set by each store.</p></div>
+<footer><a href="privacy.html">Privacy Policy</a>·<a href="terms.html">Terms of Service</a>·<a href="mailto:hpind77@gmail.com">Contact</a><br><span class="notranslate" translate="no">© Kyphara · DriftforgeDev</span></footer>
+
+<script>
+const LINKS=@@LINKS@@;
+function apply(L){document.querySelectorAll('a[data-link]').forEach(a=>{const e=L[a.dataset.link];if(!e)return;const u=e[e.active]||e.primary||e.official;if(u)a.href=u;});}
+apply(LINKS);
+fetch('links.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(j=>{if(j)apply(j)}).catch(()=>{});
+document.getElementById('discBtn').onclick=function(){const d=document.getElementById('disc');d.classList.toggle('open');this.textContent=d.classList.contains('open')?'Hide':'About these links';if(window.__tr)window.__tr(this);};
+// section bar: folds when you scroll, "Sections +" opens it again
+const navs=[...document.querySelectorAll('#navbar a')];
+const bar=document.getElementById('bar'),secSign=document.getElementById('secSign');
+function navOpen(o){bar.classList.toggle('closed',!o);secSign.textContent=o?'–':'+';document.getElementById('secBtn').setAttribute('aria-expanded',o);}
+document.getElementById('secBtn').onclick=()=>navOpen(bar.classList.contains('closed'));
+let autoFold=false;const barTop=bar.getBoundingClientRect().top+scrollY;
+function hl(){if(!autoFold&&scrollY>barTop+40){autoFold=true;navOpen(false);}let cur=navs[0];const atEnd=innerHeight+scrollY>=document.body.scrollHeight-4;for(const a of navs){const s=document.querySelector(a.getAttribute('href'));if(s&&s.getBoundingClientRect().top<200)cur=a;}if(atEnd&&scrollY>200)cur=navs[navs.length-1];navs.forEach(a=>a.classList.toggle('on',a===cur));}
+addEventListener('scroll',hl,{passive:true});hl();
+navs.forEach(a=>a.addEventListener('click',()=>{navOpen(false);autoFold=true;const d=document.querySelector(a.getAttribute('href')+' details');if(d)d.open=true;}));
+// skin type
+const SKIN=[['Dry skin','Use a creamy cleanser and a rich moisturizer. Avoid very hot water.'],['Oily skin','Use a gel cleanser and a light, oil-free moisturizer. Do not skip moisturizer.'],['Combination skin','Use a gentle cleanser, a light moisturizer, and blotting papers for shiny areas.'],['Normal skin','Keep it simple: gentle cleanser, moisturizer and daily sunscreen.'],['Sensitive skin','Choose fragrance-free products and test each new product before using it on your face.']];
+document.getElementById('skin').onchange=function(){const o=document.getElementById('skinOut');const i=this.selectedIndex;o.innerHTML=i?'<b>'+SKIN[i-1][0]+'</b><br><span>'+SKIN[i-1][1]+'</span>':'';if(window.__tr)window.__tr(o);};
+// --- automatic translation (own script, no Google banner) ---
+(function(){
+const LANGS={en:'English',af:'Afrikaans',sq:'Shqip',am:'አማርኛ',ar:'العربية',hy:'Հայերեն',az:'Azərbaycan',eu:'Euskara',be:'Беларуская',bn:'বাংলা',bg:'Български',my:'မြန်မာ',ca:'Català','zh-CN':'中文（简体）','zh-TW':'中文（繁體）',hr:'Hrvatski',cs:'Čeština',da:'Dansk',nl:'Nederlands',et:'Eesti',tl:'Filipino',fi:'Suomi',fr:'Français',gl:'Galego',ka:'ქართული',de:'Deutsch',el:'Ελληνικά',gu:'ગુજરાતી',iw:'עברית',hi:'हिन्दी',hu:'Magyar',is:'Íslenska',id:'Bahasa Indonesia',it:'Italiano',ja:'日本語',kn:'ಕನ್ನಡ',kk:'Қазақ',km:'ខ្មែរ',ko:'한국어',ky:'Кыргызча',lo:'ລາວ',lv:'Latviešu',lt:'Lietuvių',mk:'Македонски',ms:'Bahasa Melayu',ml:'മലയാളം',mr:'मराठी',mn:'Монгол',ne:'नेपाली',no:'Norsk',fa:'فارسی',pl:'Polski',pt:'Português',pa:'ਪੰਜਾਬੀ',ro:'Română',ru:'Русский',sr:'Српски',si:'සිංහල',sk:'Slovenčina',sl:'Slovenščina',es:'Español',sw:'Kiswahili',sv:'Svenska',ta:'தமிழ்',te:'తెలుగు',th:'ไทย',tr:'Türkçe',uk:'Українська',ur:'اردو',vi:'Tiếng Việt',zu:'isiZulu'};
+const sel=document.getElementById('lang');
+for(const k in LANGS){const o=document.createElement('option');o.value=k;o.textContent=LANGS[k];sel.appendChild(o);}
+function norm(c){c=(c||'en').toLowerCase();if(c.startsWith('zh'))return /tw|hk|mo|hant/.test(c)?'zh-TW':'zh-CN';const b=c.split('-')[0];return {fil:'tl',he:'iw',nb:'no',nn:'no',jv:'jw'}[b]||b;}
+let saved=null;try{saved=localStorage.getItem('kyphara-lang')}catch(e){}
+let lang=saved||norm(navigator.languages&&navigator.languages[0]||navigator.language);
+if(!LANGS[lang]){const o=document.createElement('option');o.value=lang;o.textContent=lang;sel.appendChild(o);}
+sel.value=lang;
+let cache={};try{cache=JSON.parse(localStorage.getItem('kyphara-tr-'+lang)||'{}')}catch(e){}
+function nodes(root){const out=[];const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(n){const p=n.parentElement;if(!p||/^(SCRIPT|STYLE|NOSCRIPT)$/.test(p.tagName)||p.closest('.notranslate,[translate=no]')||!/\p{L}/u.test(n.nodeValue))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT;}});while(w.nextNode())out.push(w.currentNode);return out;}
+const FIX=@@FIX@@;
+async function tr(t){const k=t.trim();if(FIX[lang]&&FIX[lang][k])return FIX[lang][k];if(cache[k])return cache[k];const r=await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl='+lang+'&dt=t&q='+encodeURIComponent(k));const j=await r.json();let s=j[0].map(x=>x[0]).join('');if(/^[A-Z]/.test(k)&&s)s=s.charAt(0).toUpperCase()+s.slice(1);cache[k]=s;return s;}
+async function run(root){if(lang==='en')return;for(const n of nodes(root)){if(!n.__orig)n.__orig=n.nodeValue;const lead=n.__orig.match(/^\s*/)[0],trail=n.__orig.match(/\s*$/)[0];try{n.nodeValue=lead+await tr(n.__orig)+trail;}catch(e){}}try{localStorage.setItem('kyphara-tr-'+lang,JSON.stringify(cache))}catch(e){}}
+window.__tr=el=>run(el);
+document.documentElement.lang=lang;document.documentElement.dir=['ar','iw','fa','ur'].includes(lang)?'rtl':'ltr';
+sel.onchange=()=>{try{localStorage.setItem('kyphara-lang',sel.value)}catch(e){}location.reload();};
+addEventListener('load',()=>run(document.body));
+})();
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>
