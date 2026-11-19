@@ -11,6 +11,7 @@
   var packP=null;
   function pack(){if(!packP)packP=fetch('tr/'+lang+'.json').then(function(r){return r.ok?r.json():{}}).catch(function(){return {}}).then(function(j){for(var k in j)if(!cache[k])cache[k]=j[k];});return packP;}
   function clean(t){return t.replace(/\s+/g,' ').trim();}
+  function fixb(k,v){return (k.indexOf('Kyphara')>=0&&v.indexOf('Kyphara')<0&&k.indexOf('7')<0)?v.replace(/[^\s:,.;()]*7/,'Kyphara'):v;}
   function cap(k,s){return (/^[A-Z]/.test(k)&&s)?s.charAt(0).toUpperCase()+s.slice(1):s;}
   function gt(list){
     return fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl='+lang+'&dt=t&q='+encodeURIComponent(list.join('\n').replace(/Kyphara/g,'XQ7')))
@@ -22,8 +23,8 @@
     list.forEach(function(k){if(len+k.length>1500&&cur.length){chunks.push(cur);cur=[];len=0;}cur.push(k);len+=k.length+1;});
     if(cur.length)chunks.push(cur);
     return Promise.all(chunks.map(function(c){
-      return gt(c).then(function(o){c.forEach(function(k,i){if(o[i])cache[k]=cap(k,o[i]);});})
-        .catch(function(){return Promise.all(c.map(function(k){return gt([k]).then(function(o){if(o[0])cache[k]=cap(k,o[0]);}).catch(function(){});}));});
+      return gt(c).then(function(o){c.forEach(function(k,i){if(o[i])cache[k]=cap(k,fixb(k,o[i]));});})
+        .catch(function(){return Promise.all(c.map(function(k){return gt([k]).then(function(o){if(o[0])cache[k]=cap(k,fixb(k,o[0]));}).catch(function(){});}));});
     }));
   }
   function nodes(root){var out=[],w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){var p=n.parentElement;if(!p||/^(SCRIPT|STYLE|NOSCRIPT)$/.test(p.tagName)||p.closest('[translate=no],.notranslate')||!/\p{L}/u.test(n.nodeValue))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT;}});while(w.nextNode())out.push(w.currentNode);return out;}

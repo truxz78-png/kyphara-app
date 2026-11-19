@@ -88,7 +88,11 @@ def pack(lang, items):
         for k, v in zip(c, o):
             if v and v == prot(k) and len(k) > 12:   # came back in English: ask again alone
                 time.sleep(0.4); v = gt(lang, [prot(k)])[0]
-            if v: res[k] = cap(k, unprot(v))
+            if v:
+                v = unprot(v)
+                if BRAND in k and BRAND not in v and '7' not in k:   # token written in another alphabet (Serbian: КСК7)
+                    v = re.sub(r'[^\s:,.;()]*7', BRAND, v, count=k.count(BRAND))
+                res[k] = cap(k, v)
         time.sleep(0.4)
     return res
 
