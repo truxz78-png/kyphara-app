@@ -17,7 +17,7 @@
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 Inter,system-ui,sans-serif}
 a{color:var(--pink)}
 .wrap{max-width:760px;margin:0 auto;padding:0 16px}
-header.hero{background:linear-gradient(135deg,#F2097F 0%,#FF3D6E 55%,#FF9A5C 100%);color:#fff;text-align:center;padding:46px 16px 22px;border-radius:0 0 28px 28px}
+header.hero{background:linear-gradient(135deg,#F2097F 0%,#FF3D6E 55%,#FF9A5C 100%);color:#fff;text-align:center;padding:50px 16px 22px;border-radius:0 0 28px 28px}
 .logo{width:96px;height:96px;border-radius:24px;box-shadow:0 10px 30px rgba(120,0,40,.35);border:3px solid rgba(255,255,255,.7)}
 h1{font:700 46px/1.1 "Cormorant Garamond",Georgia,serif;letter-spacing:.16em;margin:14px 0 2px;background:linear-gradient(#FFF6D6,#F2D27A 55%,#E3B04B);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 2px 0 rgba(0,0,0,.04)}
 .tag{margin:0 auto 14px;max-width:520px;font-size:15px;opacity:.95}
@@ -32,8 +32,7 @@ nav.bar .barhead{display:flex;align-items:center;justify-content:center;padding:
 nav.bar.closed #navbar{display:none}
 nav.bar a{flex:none;text-decoration:none;color:var(--muted);font-size:14px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;white-space:nowrap;background:var(--card)}
 nav.bar a.on{color:#fff;background:var(--pink);border-color:var(--pink);font-weight:600}
-.lang{position:absolute;top:12px;right:12px;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.22);color:#fff;border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:6px 10px;font:14px Inter,sans-serif;z-index:10}
-.lang select{background:transparent;color:#fff;border:0;font:inherit;max-width:150px;outline:none}.lang select option{color:#2B0A17;background:#fff}
+.lang{position:absolute;top:10px;right:10px;display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.22);color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:8px;padding:3px 8px;font:600 12px Inter,sans-serif;letter-spacing:.04em;z-index:10;cursor:pointer}.lang .ic{font-size:12px}.lang .car{font-size:9px;opacity:.85}.lang select{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:16px}.lang select option{color:#2B0A17;background:#fff}
 section{margin:18px 0}
 details{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 4px 18px rgba(232,23,93,.06)}
 summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:12px}
@@ -62,7 +61,7 @@ footer a{margin:0 8px}
 </style>
 </head>
 <body>
-<label class="lang notranslate" translate="no"><span>🌐</span><select id="lang" aria-label="Language"></select></label>
+<label class="lang notranslate" translate="no"><span class="ic">🌐</span><span id="langcode">EN</span><span class="car">▾</span><select id="lang" aria-label="Language"></select></label>
 <header class="hero">
 <img class="logo" src="icon-192.png" alt="Kyphara" width="96" height="96">
 <h1 class="notranslate" translate="no">KYPHARA</h1>
@@ -166,7 +165,7 @@ const SKIN=[['Dry skin','Use a creamy cleanser and a rich moisturizer. Avoid ver
 document.getElementById('skin').onchange=function(){const o=document.getElementById('skinOut');const i=this.selectedIndex;o.innerHTML=i?'<b>'+SKIN[i-1][0]+'</b><br><span>'+SKIN[i-1][1]+'</span>':'';if(window.__tr)window.__tr(o);};
 // --- automatic translation (own script, no Google banner) ---
 (function(){
-const LANGS={en:'English',af:'Afrikaans',sq:'Shqip',am:'አማርኛ',ar:'العربية',hy:'Հայերեն',az:'Azərbaycan',eu:'Euskara',be:'Беларуская',bn:'বাংলা',bg:'Български',my:'မြန်မာ',ca:'Català','zh-CN':'中文（简体）','zh-TW':'中文（繁體）',hr:'Hrvatski',cs:'Čeština',da:'Dansk',nl:'Nederlands',et:'Eesti',tl:'Filipino',fi:'Suomi',fr:'Français',gl:'Galego',ka:'ქართული',de:'Deutsch',el:'Ελληνικά',gu:'ગુજરાતી',iw:'עברית',hi:'हिन्दी',hu:'Magyar',is:'Íslenska',id:'Bahasa Indonesia',it:'Italiano',ja:'日本語',kn:'ಕನ್ನಡ',kk:'Қазақ',km:'ខ្មែរ',ko:'한국어',ky:'Кыргызча',lo:'ລາວ',lv:'Latviešu',lt:'Lietuvių',mk:'Македонски',ms:'Bahasa Melayu',ml:'മലയാളം',mr:'मराठी',mn:'Монгол',ne:'नेपाली',no:'Norsk',fa:'فارسی',pl:'Polski',pt:'Português',pa:'ਪੰਜਾਬੀ',ro:'Română',ru:'Русский',sr:'Српски',si:'සිංහල',sk:'Slovenčina',sl:'Slovenščina',es:'Español',sw:'Kiswahili',sv:'Svenska',ta:'தமிழ்',te:'తెలుగు',th:'ไทย',tr:'Türkçe',uk:'Українська',ur:'اردو',vi:'Tiếng Việt',zu:'isiZulu'};
+const LANGS={en:'English',es:'Español',af:'Afrikaans',sq:'Shqip',am:'አማርኛ',ar:'العربية',hy:'Հայերեն',az:'Azərbaycan',eu:'Euskara',be:'Беларуская',bn:'বাংলা',bg:'Български',my:'မြန်မာ',ca:'Català','zh-CN':'中文（简体）','zh-TW':'中文（繁體）',hr:'Hrvatski',cs:'Čeština',da:'Dansk',nl:'Nederlands',et:'Eesti',tl:'Filipino',fi:'Suomi',fr:'Français',gl:'Galego',ka:'ქართული',de:'Deutsch',el:'Ελληνικά',gu:'ગુજરાતી',iw:'עברית',hi:'हिन्दी',hu:'Magyar',is:'Íslenska',id:'Bahasa Indonesia',it:'Italiano',ja:'日本語',kn:'ಕನ್ನಡ',kk:'Қазақ',km:'ខ្មែរ',ko:'한국어',ky:'Кыргызча',lo:'ລາວ',lv:'Latviešu',lt:'Lietuvių',mk:'Македонски',ms:'Bahasa Melayu',ml:'മലയാളം',mr:'मराठी',mn:'Монгол',ne:'नेपाली',no:'Norsk',fa:'فارسی',pl:'Polski',pt:'Português',pa:'ਪੰਜਾਬੀ',ro:'Română',ru:'Русский',sr:'Српски',si:'සිංහල',sk:'Slovenčina',sl:'Slovenščina',sw:'Kiswahili',sv:'Svenska',ta:'தமிழ்',te:'తెలుగు',th:'ไทย',tr:'Türkçe',uk:'Українська',ur:'اردو',vi:'Tiếng Việt',zu:'isiZulu'};
 const sel=document.getElementById('lang');
 for(const k in LANGS){const o=document.createElement('option');o.value=k;o.textContent=LANGS[k];sel.appendChild(o);}
 function norm(c){c=(c||'en').toLowerCase();if(c.startsWith('zh'))return /tw|hk|mo|hant/.test(c)?'zh-TW':'zh-CN';const b=c.split('-')[0];return {fil:'tl',he:'iw',nb:'no',nn:'no',jv:'jw'}[b]||b;}
@@ -174,6 +173,7 @@ let saved=null;try{saved=localStorage.getItem('kyphara-lang')}catch(e){}
 let lang=saved||norm(navigator.languages&&navigator.languages[0]||navigator.language);
 if(!LANGS[lang]){const o=document.createElement('option');o.value=lang;o.textContent=lang;sel.appendChild(o);}
 sel.value=lang;
+document.getElementById('langcode').textContent=(lang==='zh-CN'?'中文':lang==='zh-TW'?'繁中':lang.split('-')[0].toUpperCase());
 let cache={};try{cache=JSON.parse(localStorage.getItem('kyphara-tr-'+lang)||'{}')}catch(e){}
 function nodes(root){const out=[];const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(n){const p=n.parentElement;if(!p||/^(SCRIPT|STYLE|NOSCRIPT)$/.test(p.tagName)||p.closest('.notranslate,[translate=no]')||!/\p{L}/u.test(n.nodeValue))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT;}});while(w.nextNode())out.push(w.currentNode);return out;}
 const FIX=@@FIX@@;
