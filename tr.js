@@ -13,9 +13,9 @@
   function clean(t){return t.replace(/\s+/g,' ').trim();}
   function cap(k,s){return (/^[A-Z]/.test(k)&&s)?s.charAt(0).toUpperCase()+s.slice(1):s;}
   function gt(list){
-    return fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl='+lang+'&dt=t&q='+encodeURIComponent(list.join('\n')))
+    return fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl='+lang+'&dt=t&q='+encodeURIComponent(list.join('\n').replace(/Kyphara/g,'XQ7')))
       .then(function(r){if(!r.ok)throw r.status;return r.json();})
-      .then(function(j){var out=j[0].map(function(x){return x[0]}).join('').split('\n');if(out.length!==list.length)throw 'split';return out.map(function(s){return s.trim()});});
+      .then(function(j){var out=j[0].map(function(x){return x[0]}).join('').split('\n');if(out.length!==list.length)throw 'split';return out.map(function(s){return s.trim().replace(/XQ7|Xq7|xq7/g,'Kyphara')});});
   }
   function batch(list){ // one request per ~1500 characters; if a batch comes back badly split, translate its lines one by one
     var chunks=[],cur=[],len=0;

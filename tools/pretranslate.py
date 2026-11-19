@@ -64,6 +64,17 @@ def cap(k, s):
     return s[:1].upper() + s[1:] if re.match(r'[A-Z]', k) and s else s
 
 
+BRAND = 'Kyphara'; TOKEN = 'XQ7'   # the brand is sent as XQ7 so Google never changes it (Кифара, किफ़ारा...)
+
+
+def prot(k):
+    return k.replace(BRAND, TOKEN)
+
+
+def unprot(v):
+    return re.sub(r'XQ7|Xq7|xq7|ХQ7|XК7', BRAND, v)
+
+
 def pack(lang, items):
     res, chunks, cur, n = {}, [], [], 0
     for k in items:
@@ -71,11 +82,13 @@ def pack(lang, items):
         cur.append(k); n += len(k) + 1
     if cur: chunks.append(cur)
     for c in chunks:
-        o = gt(lang, c)
+        o = gt(lang, [prot(k) for k in c])
         if len(o) != len(c):          # badly split: one by one
-            o = [gt(lang, [k])[0] for k in c]
+            o = [gt(lang, [prot(k)])[0] for k in c]
         for k, v in zip(c, o):
-            if v: res[k] = cap(k, v)
+            if v and v == prot(k) and len(k) > 12:   # came back in English: ask again alone
+                time.sleep(0.4); v = gt(lang, [prot(k)])[0]
+            if v: res[k] = cap(k, unprot(v))
         time.sleep(0.4)
     return res
 

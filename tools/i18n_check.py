@@ -109,6 +109,11 @@ if os.path.isdir(trdir):
     for f in sorted(os.listdir(trdir)):
         pk = json.load(open(os.path.join(trdir, f), encoding='utf-8'))
         if any(t not in pk for t in allt): old.append(f[:-5])
+        for k, v in pk.items():
+            if 'Kyphara' in k and 'Kyphara' not in v:
+                warnings.append(f'pack {f[:-5]}: brand name changed in "{v[:60]}"')
+            if len(k) > 25 and v == k and f[:-5] not in ('en',):
+                warnings.append(f'pack {f[:-5]}: still in English "{k[:60]}"')
     if old:
         warnings.append('translation packs out of date (run python3 tools/pretranslate.py in Termux): ' + ' '.join(old))
 else:
