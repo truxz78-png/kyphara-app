@@ -88,13 +88,18 @@ for lang in langs:
             warnings.append(f'{lang}: "{k}" is identical to English (check it)')
     rows.append(f'| {lang} | {len(short) - len(miss)}/{len(short)} |')
 
-# ---------- legal pages (Spanish) ----------
+# ---------- legal pages (hand-reviewed languages) ----------
 legal = read('legal-tr.js')
-LFIX = {'es': json_after(legal, 'var FIX={es:')} if 'var FIX={es:' in legal else {}
-for name in ('privacy.html', 'terms.html'):
-    for t in texts_of(read(name)):
-        if t not in LFIX.get('es', {}):
-            errors.append(f'{name} (es): missing Spanish for "{t}"')
+LFIX = json_after(legal, 'var FIX=') if 'var FIX=' in legal else {}
+for lang in ('es', 'pt', 'fr', 'de', 'ru', 'zh-CN', 'ja', 'ar', 'hi'):
+    for name in ('privacy.html', 'terms.html'):
+        for t in texts_of(read(name)):
+            if t not in LFIX.get(lang, {}):
+                errors.append(f'{name} ({lang}): missing translation for "{t}"')
+    if lang != 'es':
+        for k, v in LFIX.get(lang, {}).items():
+            if not v.strip():
+                errors.append(f'legal {lang}: empty translation for "{k}"')
 
 # ---------- index.html must match src/ ----------
 if os.path.exists(os.path.join(ROOT, 'src', 'build.py')):
