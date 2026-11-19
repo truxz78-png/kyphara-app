@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<style>html.trw body{visibility:hidden}html.trw::after{content:"";position:fixed;top:50%;left:50%;width:34px;height:34px;margin:-17px 0 0 -17px;border:3px solid #F9C6D6;border-top-color:#E8175D;border-radius:50%;animation:trs .8s linear infinite}@keyframes trs{to{transform:rotate(360deg)}}</style><script>(function(){var l=null;try{l=localStorage.getItem("kyphara-lang")}catch(e){}l=l||(navigator.languages&&navigator.languages[0])||navigator.language||"en";if(!/^en/i.test(l)){var h=document.documentElement;h.classList.add("trw");setTimeout(function(){h.classList.remove("trw")},10000);}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google" content="notranslate">
 <title>Kyphara – Beauty &amp; Courses</title>
@@ -145,6 +146,7 @@ footer a{margin:0 8px}
 <div class="wrap"><p class="disc">Kyphara uses affiliate links: if you buy through them, we may earn a commission at no extra cost to you. Prices, availability and shipping are set by each store.</p></div>
 <footer><a href="privacy.html">Privacy Policy</a>·<a href="terms.html">Terms of Service</a>·<a href="mailto:hpind77@gmail.com">Contact</a><br><span class="notranslate" translate="no">© Kyphara · DriftforgeDev</span></footer>
 
+<script src="tr.js"></script>
 <script>
 const LINKS=@@LINKS@@;
 function apply(L){document.querySelectorAll('a[data-link]').forEach(a=>{const e=L[a.dataset.link];if(!e)return;const u=e[e.active]||e.primary||e.official;if(u)a.href=u;});}
@@ -180,15 +182,11 @@ let lang=saved||norm(navigator.languages&&navigator.languages[0]||navigator.lang
 if(!LANGS[lang]){const o=document.createElement('option');o.value=lang;o.textContent=lang;sel.appendChild(o);}
 sel.value=lang;
 document.getElementById('langcode').textContent=(lang==='zh-CN'?'中文':lang==='zh-TW'?'繁中':lang.split('-')[0].toUpperCase());
-let cache={};try{cache=JSON.parse(localStorage.getItem('kyphara-tr-'+lang)||'{}')}catch(e){}
-function nodes(root){const out=[];const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(n){const p=n.parentElement;if(!p||/^(SCRIPT|STYLE|NOSCRIPT)$/.test(p.tagName)||p.closest('.notranslate,[translate=no]')||!/\p{L}/u.test(n.nodeValue))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT;}});while(w.nextNode())out.push(w.currentNode);return out;}
 const FIX=@@FIX@@;
-async function tr(t){const k=t.trim();if(FIX[lang]&&FIX[lang][k])return FIX[lang][k];if(cache[k])return cache[k];const r=await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl='+lang+'&dt=t&q='+encodeURIComponent(k));const j=await r.json();let s=j[0].map(x=>x[0]).join('');if(/^[A-Z]/.test(k)&&s)s=s.charAt(0).toUpperCase()+s.slice(1);cache[k]=s;return s;}
-async function run(root){if(lang==='en')return;for(const n of nodes(root)){if(!n.__orig)n.__orig=n.nodeValue;const lead=n.__orig.match(/^\s*/)[0],trail=n.__orig.match(/\s*$/)[0];try{n.nodeValue=lead+await tr(n.__orig)+trail;}catch(e){}}try{localStorage.setItem('kyphara-tr-'+lang,JSON.stringify(cache))}catch(e){}}
-window.__tr=el=>run(el);
+window.__tr=el=>KyTr.run(el,FIX[lang]);
 document.documentElement.lang=lang;document.documentElement.dir=['ar','iw','fa','ur'].includes(lang)?'rtl':'ltr';
 sel.onchange=()=>{try{localStorage.setItem('kyphara-lang',sel.value)}catch(e){}location.reload();};
-addEventListener('load',()=>run(document.body));
+KyTr.run(document.body,FIX[lang]);
 })();
 if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>

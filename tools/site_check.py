@@ -4,10 +4,11 @@ import os, sys, urllib.request
 
 SITE = os.environ.get("SITE", "https://truxz78-png.github.io/kyphara-app/").rstrip("/") + "/"
 CHECKS = {
-    "index.html":   ["privacy.html", "terms.html", "translate.googleapis.com", "links.json", "Opens partner site", "Cuidado de la piel", "Ship packages to your country", "Beauty courses"],
-    "privacy.html": ["terms.html", "index.html", "legal-tr.js", "hpind77@gmail.com"],
-    "terms.html":   ["privacy.html", "index.html", "legal-tr.js", "hpind77@gmail.com", "Dominican Republic"],
-    "legal-tr.js":  ["translate.googleapis.com", "Volver a"],
+    "index.html":   ["privacy.html", "terms.html", "tr.js", "links.json", "Opens partner site", "Cuidado de la piel", "Ship packages to your country", "Beauty courses"],
+    "privacy.html": ["terms.html", "index.html", "tr.js", "legal-tr.js", "hpind77@gmail.com"],
+    "terms.html":   ["privacy.html", "index.html", "tr.js", "legal-tr.js", "hpind77@gmail.com", "Dominican Republic"],
+    "legal-tr.js":  ["KyTr", "Volver a"],
+    "tr.js":        ["translate.googleapis.com", "tr/"],
     "links.json":   ["primary", "official", "planetexpress.com/?ref=378266", "id_affiliate=24923"],
 }
 fails = []

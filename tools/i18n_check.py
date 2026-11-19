@@ -101,6 +101,19 @@ for lang in ('es', 'pt', 'fr', 'de', 'ru', 'zh-CN', 'ja', 'ar', 'hi'):
             if not v.strip():
                 errors.append(f'legal {lang}: empty translation for "{k}"')
 
+# ---------- ready-made packs tr/<lang>.json (warning only: run tools/pretranslate.py in Termux) ----------
+trdir = os.path.join(ROOT, 'tr')
+if os.path.isdir(trdir):
+    allt = [' '.join(t.split()) for t in page + texts_of(read('privacy.html')) + texts_of(read('terms.html'))]
+    old = []
+    for f in sorted(os.listdir(trdir)):
+        pk = json.load(open(os.path.join(trdir, f), encoding='utf-8'))
+        if any(t not in pk for t in allt): old.append(f[:-5])
+    if old:
+        warnings.append('translation packs out of date (run python3 tools/pretranslate.py in Termux): ' + ' '.join(old))
+else:
+    warnings.append('no translation packs yet (run python3 tools/pretranslate.py in Termux)')
+
 # ---------- index.html must match src/ ----------
 if os.path.exists(os.path.join(ROOT, 'src', 'build.py')):
     tmp = tempfile.mkdtemp()
