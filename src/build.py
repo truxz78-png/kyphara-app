@@ -17,7 +17,13 @@ G = {
 'skincare': S('ae-skincare', 'AliExpress', 'Skincare', 'Cleansers, serums, masks and moisturizers'),
 'hair': S('ae-hair', 'AliExpress', 'Hair care', 'Hair oils, shampoos, treatments and hair tools'),
 'nails': S('ae-nails', 'AliExpress', 'Nails', 'Gel polish, UV lamps, nail art and press-on nails'),
-'india': S('nykaa', 'Nykaa', 'Nykaa', "India's leading beauty store: makeup, skincare, hair care and fragrance", nt=True),
+'india': S('nykaa', 'Nykaa', 'Nykaa', "India's leading beauty store: makeup, skincare, hair care and fragrance", nt=True)
+       + S('hok-makeup', 'HOK Makeup', 'HOK Makeup', 'Makeup and Korean beauty brands', nt=True),
+'luxury': S('forest-essentials', 'Forest Essentials', 'Forest Essentials', 'Luxury Ayurvedic skincare, hair care and fragrances from India', nt=True),
+'middle-east': S('bbw-me', 'Bath & Body Works', 'Bath & Body Works', 'Body mists, lotions, shower gels and candles', nt=True)
+       + S('vs-me', "Victoria's Secret", "Victoria's Secret Beauty", 'Fragrances, body mists and beauty gift sets', nt=True)
+       + S('vperfumes', 'Vperfumes', 'Vperfumes', 'Designer and niche perfumes, bakhoor and gift sets', nt=True)
+       + S('dermazone', 'DermaZone', 'DermaZone', 'Korean skincare, hair care and dermocosmetics', nt=True),
 'men': S('ae-beard', 'AliExpress', 'Beard and shaving', 'Beard oils, balms, trimmers and shavers'),
 'shipping': S('planet-express', 'Planet Express', 'US address for your orders', 'Get a US address and ship your online purchases anywhere.', 'Go to')
           + S('shipito', 'Shipito', 'Worldwide package forwarding', 'US warehouse address and package forwarding worldwide.', 'Go to'),
